@@ -5,11 +5,17 @@ from transformers import GPT2LMHeadModel, GPT2Tokenizer
 import torch
 
 # Load custom CSS for styling
-def load_css(file_name):
-    with open(file_name) as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+css = """
+body {
+    background-color: #f0f0f0;  /* Change this to your desired background color */
+    color: #333333;  /* Change text color */
+}
 
-load_css("styles.css")
+h1, h2, h3 {
+    font-family: 'Arial', sans-serif;  /* Change font for headers */
+}
+"""
+st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
 
 # Load pre-trained GPT-2 model and tokenizer from Hugging Face
 model_name = "gpt2"
