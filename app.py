@@ -4,8 +4,15 @@ from nltk.tokenize import word_tokenize
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 import torch
 
+# Load custom CSS for styling
+def load_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+load_css("styles.css")
+
 # Load pre-trained GPT-2 model and tokenizer from Hugging Face
-model_name = "gpt2"  # You can use "gpt2-medium", "gpt2-large" for better models
+model_name = "gpt2"
 model = GPT2LMHeadModel.from_pretrained(model_name)
 tokenizer = GPT2Tokenizer.from_pretrained(model_name)
 
